@@ -239,7 +239,7 @@ Target 2	ACGATTGTGCATCAGCTGA	RE	Institute X	Orf1b	2",header=T)
     #Retrieve alignment data from script output or from disk depending on shinyapps.io or not
     if (Sys.getenv("R_CONFIG_ACTIVE") == "shinyapps"){
         aln_data <- reactive({
-            data <- fread("data-2020-02-20.csv")
+            data <- fread("current_results.csv")
             names(data) <- c("qname","pseq","type","origin","gene","set","refname","score","start","stop","refseq","alnstr","qseq")
             return(data)
         })
