@@ -344,6 +344,7 @@ Target 2	ACGATTGTGCATCAGCTGA	RE	Institute X	Orf1b	2",header=T)
       
       data[,yfactor:=factor(paste(qname,type,sep='|'), levels = rev(paste(qname,type,sep='|')), ordered=T)]
       
+      #Todo: deal with large number of primer probe pairs, for instance amplicon sets
       # if(nrow(data)<25){
       #   p <- ggplot(data, aes(y=yfactor, x=gene, fill=mm, text=qname, key=qname)) +
       #     geom_tile() +
@@ -555,8 +556,3 @@ Target 2	ACGATTGTGCATCAGCTGA	RE	Institute X	Orf1b	2",header=T)
 
 # Run the application 
 shinyApp(ui = ui, server = server)
-
-#Demo site
-#rsconnect::deployApp('.', account = "dnieuw", appName = "primer-check", appTitle = "SARS-CoV-2 primer check visualization")
-#Deploy site
-#rsconnect::deployApp('.', account = "viroscience-emc", appName = "primer-check", appTitle = "SARS-CoV-2 primer check visualization")
