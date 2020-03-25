@@ -161,7 +161,7 @@ ui <- dashboardPage(skin = "red",
 )
 
 server <- function(input, output, session) {
-  #Pretend that we are at shinyapps.io
+  #Pretend that we are at shinyapps.io. Using the primer-check python script is only possible when run locally, in that case comment out this command:
   Sys.setenv(R_CONFIG_ACTIVE="shinyapps")
   
   #########################
