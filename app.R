@@ -13,7 +13,7 @@ library(Biostrings)
 options(shiny.maxRequestSize=100*1024^2)
 options(repos = BiocManager::repositories())
 
-UPDATE_DATE<-"13th March 2020"
+UPDATE_DATE<-"25th March 2020"
 
 ui <- dashboardPage(skin = "red",
         dashboardHeader(title = "Primer-Check"),
