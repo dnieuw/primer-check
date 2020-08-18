@@ -473,17 +473,7 @@ Target 2	ACGATTGTGCATCAGCTGA	RE	Institute X	Orf1b	2",header=T)
     output$alignment <- renderUI({
         
         mutations <- c("*","A","C","T","G","Other","-","N")
-        
-        # aln <- req(primer_positions())
-        # aln <- aln[primer_selected]
-        # 
-        # primer_data <- hot_to_r(input$primer_table)[Name==unlist(clickData$key)]
-        # primer_seq <- DNAStringSet(primer_data$Sequence)
-        # if (primer_data$Type=="RE") {
-        #   primer_seq <- reverseComplement(primer_seq)
-        # }
-        # primer_seq <- as.character(primer_seq)
-        
+
         clickData <- select_data$alignment_click
         if (is.null(clickData)) return(NULL)
         
