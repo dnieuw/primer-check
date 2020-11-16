@@ -570,10 +570,10 @@ Target 2	ACGATTGTGCATCAGCTGA	RE	Institute X	Orf1b	2",header=T)
     
     output$source_table <- downloadHandler(
       filename = function() {
-        paste("gisaid_cov2020_acknowledgement_table.csv")
+        paste("gisaid_hcov-19_acknowledgement_table.pdf")
       },
       content = function(file) {
-        fwrite(fread("gisaid_cov2020_acknowledgement_table.csv"), file, row.names = F)
+        file.copy("www/gisaid_hcov-19_acknowledgement_table.pdf", file)
       }
     )
 }
