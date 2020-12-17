@@ -120,8 +120,6 @@ ui <- dashboardPage(skin = "red",
 )
 
 server <- function(input, output, session) {
-    
-    DATE_UPDATE <- "18-08-2020"
   
     f2si<-function (number, rounding=F, digits=ifelse(rounding, NA, 6)) {
       lut <- c(1e-24, 1e-21, 1e-18, 1e-15, 1e-12, 1e-09, 1e-06, 
@@ -150,20 +148,6 @@ server <- function(input, output, session) {
           menuItem("Results", tabName = "results", icon = icon("th")),
           menuItem("Acknowledgements", tabName = "source", icon = icon("thumbs-up"))
       )
-    })
-    
-    observeEvent(input$example_data,{
-      if (input$example_data) {
-        showModal(modalDialog(
-          title = "GISAID example dataset",
-          paste("This data represents the GISAID sequences of the samples that 
-          were taken in the last two months. The data was last updated on: ",DATE_UPDATE,". 
-          Because of GISAID's Database Access Agreement the example data 
-          is not included in the locally intalled version of the application 
-          and selecting this option will give an error"),
-          easyClose = TRUE
-        ))
-      }
     })
     
     output$download_primer <- downloadHandler(
@@ -570,7 +554,7 @@ Target 2	ACGATTGTGCATCAGCTGA	RE	Institute X	Orf1b	2",header=T)
     
     output$source_table <- downloadHandler(
       filename = function() {
-        paste("gisaid_hcov-19_acknowledgement_table.pdf")
+        paste("gisaid_cov2020_acknowledgement_table.pdf")
       },
       content = function(file) {
         file.copy("www/gisaid_hcov-19_acknowledgement_table.pdf", file)
@@ -580,5 +564,3 @@ Target 2	ACGATTGTGCATCAGCTGA	RE	Institute X	Orf1b	2",header=T)
 
 # Run the application 
 shinyApp(ui = ui, server = server)
-
-#rsconnect::deployApp('.', account = "dnieuw", appName = "primer-check", appTitle = "SARS-CoV-2019 primer check visualization")
